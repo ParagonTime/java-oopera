@@ -5,10 +5,11 @@ public class Theatre {
         Actor actor1 = new Actor("Ivan", "Ivanov", Gender.MAN, 184);
         Actor actor2 = new Actor("Anton", "Petrov", Gender.MAN, 185);
         Actor actor3 = new Actor("Max", "Sidorov", Gender.MAN, 186);
+        Actor actor4 = new Actor("Maxim", "Sidorov", Gender.MAN, 180);
         Director director1 = new Director("Petr", "Petrov", Gender.MAN, 0);
         Director director2 = new Director("Misha", "Mamedov", Gender.MAN, 2);
-        MusicAuthor musicAuthor = new MusicAuthor("Max", "Sidorov", Gender.WOMAN);
-        Choreographer choreographer = new Choreographer("Maya", "Plisetskaya", Gender.WOMAN);
+        Person musicAuthor = new Person("Max", "Sidorov", Gender.WOMAN);
+        Person choreographer = new Person("Maya", "Plisetskaya", Gender.WOMAN);
         MusicalShow spectacle = new MusicalShow("Nutcracker", 120, director1,
                 new ArrayList<>(), musicAuthor, "Nutcracker next");
         Opera opera = new Opera("Carmen", 121, director2,
@@ -36,6 +37,8 @@ public class Theatre {
         opera.printActors();
 
         ballet.replaceActor(actor2, "Pchelkin");
+        ballet.addActorToShow(actor4);
+        ballet.replaceActor(actor2, "Sidorov");
 
         System.out.print("opera libretto: ");
         opera.printLibretto();

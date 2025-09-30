@@ -31,12 +31,21 @@ public class Show {
     }
 
     public void replaceActor(Actor newActor, String srcSurname) {
+        int count = 0;
+        int indexForReplace = -1;
         for (int i = 0; i < listOfActors.size(); i++) {
-            if (listOfActors.get(i).getSurname() == srcSurname) {
-                listOfActors.set(i, newActor);
-                return;
+            if (listOfActors.get(i).getSurname().equals(srcSurname)) {
+                indexForReplace = i;
+                count++;
             }
         }
-        System.out.printf("Актер с фамилией %s отсутствует \n", srcSurname);
+        if (indexForReplace < 0) {
+            System.out.printf("Актер с фамилией %s отсутствует \n", srcSurname);
+            return;
+        } else if (count > 1) {
+            System.out.printf("Найдено десколько актеров с фамилией %s \n", srcSurname);
+            return;
+        }
+        listOfActors.set(indexForReplace, newActor);
     }
 }
